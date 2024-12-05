@@ -1,47 +1,83 @@
-Instruction to open source FinalProject and link database to source
-*Notice: go to FinalProject\FinalProject\STOCK\bin\Debug
-Check if it have a file name connectdb.dba -> delete this file.
+FinalProject Setup Instructions
 
-Step 1: Create database name as file (Product_Managerment) database in Microsoft SQL Server Management Studio then open file name in Final SE\final\Product_Manangerment.sql to database name (Product_Managerment)
-Step 2: Open Visual Studio with the link FinalProject\FinalProject\FinalProject.sln
-Step 3: Find the file name STOCK.edmx in STOCK in Solution Exporer and delete it 
-Step 4: Find the file DataLayer press the right click in mouse -> click to Add -> create new file -> search the ADO.NET Enity Data Model and set name is STOCK
--> Next -> press New Connection -> add your sever name -> choose Authentication: SQL Sever Authentication 
--> Enter your username and password -> in connect to a database click select or enter a database name: Product_Managerment -> OK
--> After click OK the hud will back to Entity Data Model Wizard 
--> Click No, exclude sensitive data from the connection string -> Remember to check Connection string carefully -> Then cancle click in save
--> Next
--> Click choose Tables and Stored Procedures and Functions -> Set Model Namespace is STOCK -> Finish
-Step 5: Ctrl + S in file name STOCK.edmx
-Step 6: Rebuild - Start 
-Step 7: To print data -> Find file name ExportReport.rpt and ReportPurchaseEntry.rpt
-*ExportReport.rpt-> double click -> press right mouse choose Database -> choose set datasource location -> look below in Replace with -> double click OLE DB(ADO)
--> choose Make new connection -> choose Microsoft OLE DB Provider for SQL Sever -> Next -> Fill your connection information (Notice Database: Product_Manangerment) -> Finish
--> Click database was created -> Click update
-*ReportPurchaseEntry.rpt-> double click -> press right mouse choose Database -> choose set datasource location -> look below in Replace with -> double click OLE DB(ADO)
--> choose Make new connection -> choose Microsoft OLE DB Provider for SQL Sever -> Next -> Fill your connection information (Notice Database: Product_Manangerment) -> Finish
--> Click database was created -> Click update
-*If your computer don't have Crystal Report you can download here https://drive.google.com/file/d/1884fQ2pSQm2iGGuRo5RCokxNNB4EKDHQ/view
+1. Preparing the Database
 
-Instruction to open source WebProject
-*Notice: Before configure file. You must open WebProject.sln -> find Web.config 
--> click right mouse find <connectionStrings><add name="Product_ManagermentEntities" connectionString="metadata=res://*/dbEntities.ProductEntities.csdl|res://*/dbEntities.ProductEntities.ssdl|res://*/dbEntities.ProductEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-7FGEK1U;initial catalog=Product_Managerment;user id=admin123;password=admin;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" /></connectionStrings>
--> and delete it
-Step 1: Find the file name ProductEntites.edmx in folder name dbEntities and detele ProductEntites.edmx
-Step 2: In folder dbEntities -> press Add to create a new file -> search the ADO.NET Enity Data Model and set name is ProductEntities 
--> Next -> press New Connection -> add your sever name -> choose Authentication: SQL Sever Authentication 
--> Enter your username and password -> in connect to a database click select or enter a database name: Product_Managerment -> OK
--> After click OK the hud will back to Entity Data Model Wizard 
--> Click Yes, include the sensitive data in the connection string -> Remember to check Connection string carefully 
--> Next 
--> Click choose Tables and Stored Procedures and Functions -> Set Model Namespace is ProductEntites -> Finish
-Step 3: Ctrl + S in file name ProductEntities.edmx
-Step 4: Rebuild - Start 
-Step 5: Waiting for load the website on localhost:44308
+Notice:
+Go to FinalProject\FinalProject\STOCK\bin\Debug and check for a file named connectdb.dba. If found, delete this file.
 
-Link demo: https://www.youtube.com/watch?v=5tSw35fLjAs
+Step-by-Step Instructions:
+Create Database in SQL Server:
+Open Microsoft SQL Server Management Studio.
+Create a new database named Product_Managerment.
+Open the SQL file located at Final SE\final\Product_Managerment.sql and run it to populate the database.
+2. Setting Up the Project in Visual Studio
 
-Support
-Account to login web:
-User:admin@gmail.com
-Password:999999999
+Step 1: Open the Project
+Open Visual Studio.
+Load the solution file: FinalProject\FinalProject\FinalProject.sln.
+Step 2: Update Data Model
+In Solution Explorer, locate and delete the file STOCK.edmx in the STOCK folder.
+Right-click the DataLayer folder → select Add → New Item.
+Choose ADO.NET Entity Data Model and name it STOCK.
+Step 3: Configure Database Connection
+Click New Connection.
+Enter your server name.
+Select SQL Server Authentication and input your username and password.
+Choose the database Product_Managerment → Click OK.
+When prompted, select No, exclude sensitive data from the connection string.
+Verify the connection string → Click Cancel to close without saving.
+Click Next and select the tables, stored procedures, and functions.
+Set the Model Namespace to STOCK → Click Finish.
+Step 4: Save and Rebuild
+Press Ctrl + S to save STOCK.edmx.
+Rebuild the project: Build → Rebuild Solution.
+Start the project to ensure it runs correctly.
+3. Configuring Reports
+
+Updating Report Data Sources
+For ExportReport.rpt:
+
+Double-click ExportReport.rpt.
+Right-click → Select Database → Set Datasource Location.
+Under Replace With, double-click OLE DB (ADO).
+Choose Make New Connection → Select Microsoft OLE DB Provider for SQL Server.
+Enter connection information (Database: Product_Managerment) → Finish.
+Click the created database → Update.
+For ReportPurchaseEntry.rpt:
+
+Repeat the same steps as above for ReportPurchaseEntry.rpt.
+Crystal Reports:
+If Crystal Reports is not installed, download it from this link.
+
+WebProject Setup Instructions
+
+1. Initial Setup
+
+Notice:
+Open WebProject.sln.
+Locate Web.config, find the <connectionStrings> section, and delete the existing connection string:
+<add name="Product_ManagermentEntities" connectionString="..." />
+2. Update Data Model
+
+Step-by-Step Instructions:
+Find and delete the file ProductEntities.edmx in the dbEntities folder.
+Right-click the dbEntities folder → Add → New Item.
+Choose ADO.NET Entity Data Model and name it ProductEntities.
+Click New Connection and configure:
+Enter server name and credentials.
+Select the database Product_Managerment → Click OK.
+Choose Yes, include sensitive data in the connection string.
+Verify the connection string → Click Next.
+Select tables, stored procedures, and functions.
+Set Model Namespace to ProductEntities → Click Finish.
+3. Save and Rebuild
+
+Press Ctrl + S to save ProductEntities.edmx.
+Rebuild the project: Build → Rebuild Solution.
+Start the project and wait for the website to load at localhost:44308.
+Demo and Support
+
+Video Demo: YouTube Link
+Login Credentials for Web:
+User: admin@gmail.com
+Password: 999999999
